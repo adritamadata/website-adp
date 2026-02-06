@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV. Adritama Data Progresif</title>
+<meta name="description" content="CV. Adritama Data Progresif menyediakan solusi IT dan MEP profesional untuk corporate dan perorangan.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+:root {
+  --blue:#0b3c8c; --red:#c1121f; --dark:#0f172a; --light:#f8fafc; --gray:#64748b;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:var(--light);color:var(--dark);line-height:1.7;transition:.3s;}
+section{padding:100px 8%;scroll-margin-top:90px;}h1,h2,h3{font-weight:600;}
+header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);z-index:999;border-bottom:1px solid #e2e8f0;}
+nav{max-width:1200px;margin:auto;padding:16px 8%;display:flex;justify-content:space-between;align-items:center;}
+nav .logo{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--blue);font-size:18px;}
+nav .logo img{height:50px;width:auto;max-width:120px;object-fit:contain;}
+nav ul{display:flex;gap:32px;list-style:none;}
+nav ul li a{text-decoration:none;color:var(--dark);font-weight:500;}
+.burger{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+.burger div{width:25px;height:3px;background-color:var(--dark);transition:.3s;}
+.nav-active{display:flex;flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:var(--light);padding:16px 0;border-top:1px solid #e2e8f0;}
+.hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#0b3c8c 0%,#020617 100%);color:white;overflow:hidden;}
+.hero-content{max-width:700px;opacity:0;transform:translateY(20px);transition:all 1s ease-out;}
+.hero-content.visible{opacity:1;transform:translateY(0);}
+.hero h1{font-size:48px;margin-bottom:16px;}
+.hero span{color:#ef4444;}
+.hero p{color:#cbd5f5;margin-bottom:32px;}
+
+.btn{
+box-shadow:0 10px 30px rgba(193,18,31,.35);
+display:inline-block;
+padding:14px 32px;
+background:var(--red);
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:500;
+transition:.3s;
+}
+
+.btn:hover{
+box-shadow:0 15px 40px rgba(193,18,31,.5);
+transform:translateY(-3px);
+}
+
+.about{background:white;}
+.about p{max-width:800px;color:var(--gray);opacity:0;transform:translateY(20px);transition:all 1s ease-out;}
+.about p.visible{opacity:1;transform:translateY(0);}
+.services{background:#f1f5f9;}
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:32px;
+margin-top:48px;
+align-items:stretch;
+}
+
+.service-card{background:white;padding:32px;border-radius:12px;transition:.3s ease;border-left:4px solid var(--blue);}
+.service-card:hover{transform:translateY(-6px);border-left-color:var(--red);}
+.values ul{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;}
+.values li{background:#f8fafc;padding:24px;border-radius:10px;list-style:none;border:1px solid #e2e8f0;opacity:0;transform:translateY(20px);transition:all 1s ease-out;}
+.values li.visible{opacity:1;transform:translateY(0);}
+.clients,.partners{text-align:center;background:white;}
+.clients h2,.partners h2{margin-bottom:40px;}
+.slider-wrapper{overflow:hidden;position:relative;}
+.slider-track{display:flex;gap:40px;width:max-content;animation:scroll 30s linear infinite;}
+.slider-track img{height:60px;object-fit:contain;transition:all .3s;filter:grayscale(100%);opacity:.7;}
+.slider-track img:hover{transform:scale(1.1);filter:grayscale(0);opacity:1;}
+@keyframes scroll{
+	from{
+	transform:translateX(0);
+	}
+	to{
+	transform:translateX(-50%);
+	}
+}
+
+.contact{
+  position:relative;
+  background:linear-gradient(135deg,#020617,#0b3c8c);
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+.contact-inner,
+.contact-inner *{
+  position:relative;
+  z-index:2;
+}
+
+
+/* efek depth eksklusif */
+.contact::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top right, rgba(255,255,255,.08), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(239,68,68,.12), transparent 45%);
+  pointer-events:none;
+}
+
+.contact::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(2,6,23,0.5); /* atur 0.45–0.6 */
+  pointer-events:none;
+}
+
+
+.contact h2{
+  font-size:36px;
+  margin-bottom:12px;
+  position:relative;
+  z-index:1;
+}
+
+.contact p{
+  color:#cbd5f5;
+  max-width:600px;
+  margin:0 auto 48px;
+  position:relative;
+  z-index:1;
+}
+
+/* wrapper form benar-benar center */
+.contact-form{
+  max-width:520px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+
+/* field lebih mahal */
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:14px;
+  border-radius:8px;
+  border:none;
+  margin-bottom:16px;
+  resize:none;
+  background:rgba(255,255,255,.95);
+  font-size:14px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color:#94a3b8;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(239,68,68,.25);
+}
+
+.contact-form button{
+  width:100%;
+}
+
+.contact-inner{
+  max-width:900px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+
+footer{background:#0f172a;color:white;padding:60px 8%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;border-top:2px solid var(--red);}
+footer .footer-column{flex:1;min-width:220px;}
+footer h3{font-size:18px;margin-bottom:16px;color:var(--red);display:flex;align-items:center;gap:8px;}
+footer p,a{color:#cbd5f5;text-decoration:none;margin-bottom:8px;display:flex;align-items:center;gap:6px;font-size:14px;}
+footer a:hover{color:var(--blue);}
+footer .footer-bottom{width:100%;text-align:center;margin-top:32px;color:#94a3b8;font-size:13px;}
+@media(max-width:768px){.hero h1{font-size:36px;}nav ul{display:none;}.burger{display:flex;}nav .logo img{height:40px;max-width:100px;}.slider-track{animation:scroll 40s linear infinite;}.slider-track img{height:50px;}footer{flex-direction:column;align-items:flex-start;}}
+body.dark{background:var(--dark);color:var(--light);}body.dark header{background:rgba(15,23,42,.9);border-bottom:1px solid #334155;}body.dark nav ul li a{color:var(--light);}body.dark .service-card{background:#1e293b;border-left-color:var(--blue);color:var(--light);}body.dark .values li{background:#1e293b;border:1px solid #334155;color:var(--light);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><img src="logo.png" alt="Logo"><span>CV. ADRITAMA DATA PROGRESIF</span></div>
+    <ul>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#services">Layanan</a></li>
+      <li><a href="#values">Keunggulan</a></li>
+      <li><a href="#clients">Klien</a></li>
+      <li><a href="#partners">Rekanan</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+    <div class="burger"><div></div><div></div><div></div></div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Solusi <span>IT & MEP</span> Profesional<br>untuk Masa Depan Anda</h1>
+    <p>Kami adalah mitra terpercaya dalam pengembangan sistem teknologi informasi dan instalasi MEP yang andal, efisien, dan berkelanjutan.</p>
+    <a href="https://wa.me/628212212158" class="btn">Hubungi Kami</a>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>Tentang Perusahaan</h2>
+  <p>CV. Adritama Data Progresif adalah perusahaan yang bergerak di bidang Teknologi Informasi dan MEP (Mechanical, Electrical, Plumbing). Kami berkomitmen memberikan solusi profesional bagi kebutuhan corporate maupun perorangan dengan standar kualitas tinggi dan pendekatan yang berorientasi pada hasil.</p>
+</section>
+
+<section id="services" class="services">
+  <h2>Layanan Kami</h2>
+  <p class="section-subtitle">
+    Solusi terintegrasi di bidang IT dan MEP untuk mendukung operasional bisnis yang aman, efisien, dan berkelanjutan.
+  </p>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>IT Solution</h3>
+      <p>Pengembangan sistem, aplikasi, jaringan, server, dan solusi digital yang stabil, aman, serta scalable.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>MEP Engineering</h3>
+      <p>Perencanaan dan instalasi sistem mekanikal, elektrikal, dan plumbing sesuai standar industri.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Air Conditioning (AC)</h3>
+      <p>Sistem pendingin dan ventilasi ruangan untuk kenyamanan dan efisiensi energi.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>CCTV & Surveillance</h3>
+      <p>Sistem pengawasan keamanan dengan teknologi terkini dan monitoring real-time.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Access Control System</h3>
+      <p>Kontrol akses pintu otomatis untuk meningkatkan keamanan area dan manajemen akses.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Fire Alarm & Suppression</h3>
+      <p>Sistem deteksi dini kebakaran dan pemadam otomatis untuk perlindungan aset.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>UPS & Power Backup</h3>
+      <p>Uninterruptible Power Supply untuk menjaga kontinuitas operasional sistem kritikal.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>System Audio</h3>
+      <p>Sistem audio profesional dengan kualitas suara jernih dan distribusi merata.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Videotron & LED Display</h3>
+      <p>Solusi layar LED dan videotron untuk kebutuhan informasi dan promosi visual.</p>
+    </div>
+
+    <div class="service-card highlight">
+      <h3>Maintenance & Support</h3>
+      <p>Dukungan teknis dan pemeliharaan berkala untuk memastikan sistem selalu optimal.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="values" class="values">
+  <h2>Keunggulan Kami</h2>
+  <ul>
+    <li><strong>Profesionalisme</strong><br>Tim berpengalaman dengan etos kerja tinggi.</li>
+    <li><strong>Kualitas</strong><br>Standar mutu yang konsisten dan terukur.</li>
+    <li><strong>Kepercayaan</strong><br>Hubungan jangka panjang dengan klien dan mitra.</li>
+    <li><strong>Inovasi</strong><br>Solusi modern yang adaptif dan andal terhadap perkembangan teknologi.</li>
+  </ul>
+</section>
+
+<section id="clients" class="clients">
+  <h2>Klien Kami</h2>
+  <div class="slider-wrapper">
+    <div class="slider-track">
+      <img src="images/clients/bbx.png" alt="Client 1">
+      <img src="images/clients/bjb.png" alt="Client 2">
+      <img src="images/clients/bsp.png" alt="Client 3">
+      <img src="images/clients/sanbe.png" alt="Client 4">
+      <img src="images/clients/pta.png" alt="Client 1">
+      <img src="images/clients/ip.png" alt="Client 2">
+	  <img src="images/clients/marvee.png" alt="Client 2">
+	  <img src="images/clients/sei.png" alt="Client 2">
+	  <img src="images/clients/smc.png" alt="Client 2">
+	  <img src="images/clients/garandiri.png" alt="Client 2">
+    </div>
+  </div>
+</section>
+
+<section id="partners" class="partners">
+  <h2>Rekanan Kami</h2>
+  <div class="slider-wrapper">
+    <div class="slider-track">
+      <img src="images/partners/amp.png" alt="Partner 1">
+      <img src="images/partners/belden.png" alt="Partner 2">
+      <img src="images/partners/belt.png" alt="Partner 3">
+      <img src="images/partners/boss.png" alt="Partner 4">
+      <img src="images/partners/dahua.png" alt="Partner 1">
+      <img src="images/partners/gree.png" alt="Partner 2">
+	  <img src="images/partners/grundfos.png" alt="Partner 1">
+      <img src="images/partners/hik.png" alt="Partner 2">
+      <img src="images/partners/hoda.png" alt="Partner 3">
+      <img src="images/partners/legrand.png" alt="Partner 4">
+      <img src="images/partners/ls.png" alt="Partner 1">
+      <img src="images/partners/netviel.png" alt="Partner 2">
+	  <img src="images/partners/onda.png" alt="Partner 1">
+      <img src="images/partners/penguin.png" alt="Partner 2">
+      <img src="images/partners/rucika.png" alt="Partner 3">
+      <img src="images/partners/ruijie.png" alt="Partner 4">
+      <img src="images/partners/sch.png" alt="Partner 1">
+      <img src="images/partners/supreme.png" alt="Partner 2">
+	  <img src="images/partners/tateyama.png" alt="Partner 1">
+      <img src="images/partners/tdi.png" alt="Partner 2">
+      <img src="images/partners/toa.png" alt="Partner 3">
+      <img src="images/partners/tray.png" alt="Partner 4">
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-inner">
+    <h2>Siap Bekerja Sama?</h2>
+    <p>Isi form di bawah ini dan kami akan menghubungi Anda melalui WhatsApp.</p>
+
+    <div class="contact-form">
+      <form id="whatsappForm">
+        <input type="text" id="name" placeholder="Nama lengkap" required>
+        <input type="email" id="email" placeholder="Email aktif" required>
+        <textarea id="message" placeholder="Tuliskan pesan atau kebutuhan Anda" rows="5" required></textarea>
+        <button type="submit" class="btn">Kirim via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-column">
+    <h3><i class="bi bi-geo-alt"></i> Lokasi</h3>
+    <p>Jl. Kudus No.23, Antapani, Bandung, Indonesia</p>
+  </div>
+  <div class="footer-column">
+    <h3><i class="bi bi-envelope"></i> Email</h3>
+    <p><a href="mailto:info@adritamadata.co.id">info@adritamadata.co.id</a></p>
+  </div>
+  <div class="footer-column">
+    <h3><i class="bi bi-telephone"></i> Telepon</h3>
+    <p><a href="tel:+628212212158">+62 8-212-212-158</a></p>
+  </div>
+  <div class="footer-column">
+    <h3><i class="bi bi-globe"></i> Media Sosial</h3>
+    <p><a href="#"><i class="bi bi-instagram"></i> Instagram</a></p>
+    <p><a href="#"><i class="bi bi-facebook"></i> Facebook</a></p>
+  </div>
+  <div class="footer-bottom">© 2026 CV. Adritama Data Progresif. All Rights Reserved.</div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.hero-content').classList.add('visible');
+
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('nav ul');
+
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('nav-active');
+  });
+
+  document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-active');
+    });
+  });
+});
+
+function revealOnScroll(){
+  const aboutP = document.querySelector('.about p');
+  const valuesLi = document.querySelectorAll('.values li');
+  const triggerBottom = window.innerHeight / 1.1;
+
+  if (aboutP && aboutP.getBoundingClientRect().top < triggerBottom) {
+    aboutP.classList.add('visible');
+  }
+
+  valuesLi.forEach(li => {
+    if (li.getBoundingClientRect().top < triggerBottom) {
+      li.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+const whatsappForm = document.getElementById('whatsappForm');
+whatsappForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  const text = `Halo, nama saya ${name} (${email}). ${message}`;
+  const url = `https://wa.me/628212212158?text=${encodeURIComponent(text)}`;
+  window.open(url,'_blank');
+});
+</script>
+
+
+</body>
+</html>
