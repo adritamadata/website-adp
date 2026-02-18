@@ -141,6 +141,19 @@ margin-bottom:16px;
 
 
 .service-card{background:white;padding:32px;border-radius:12px;transition:.3s ease;border-left:4px solid var(--blue);}
+.service-card h3{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:17px;
+}
+
+.service-card i{
+  font-size:20px;
+  color:var(--blue);
+  transition:.3s;
+}
+
 .service-card:hover{transform:translateY(-6px);border-left-color:var(--red);}
 .values ul{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;}
 .values li{background:#f8fafc;padding:24px;border-radius:10px;list-style:none;border:1px solid #e2e8f0;opacity:0;transform:translateY(20px);transition:all 1s ease-out;}
@@ -423,52 +436,52 @@ body.dark{background:var(--dark);color:var(--light);}body.dark header{background
   <div class="service-grid">
 
     <div class="service-card">
-      <h3>IT Solution</h3>
+      <h3><i class="bi bi-hdd-network"></i> IT Solution</h3>
       <p>Pengembangan sistem, aplikasi, jaringan, server, dan solusi digital yang stabil, aman, serta scalable.</p>
     </div>
 
     <div class="service-card">
-      <h3>MEP Engineering</h3>
+      <h3><i class="bi bi-lightning-charge"></i> MEP Engineering</h3>
       <p>Perencanaan dan instalasi sistem mekanikal, elektrikal, dan plumbing sesuai standar industri.</p>
     </div>
 
     <div class="service-card">
-      <h3>Air Conditioning (AC)</h3>
+      <h3><i class="bi bi-snow"></i> Air Conditioning (AC)</h3>
       <p>Sistem pendingin dan ventilasi ruangan untuk kenyamanan dan efisiensi energi.</p>
     </div>
 
     <div class="service-card">
-      <h3>CCTV & Surveillance</h3>
+      <h3><i class="bi bi-camera-video"></i> CCTV & Surveillance</h3>
       <p>Sistem pengawasan keamanan dengan teknologi terkini dan monitoring real-time.</p>
     </div>
 
     <div class="service-card">
-      <h3>Access Control System</h3>
+      <h3><i class="bi bi-shield-lock"></i> Access Control System</h3>
       <p>Kontrol akses pintu otomatis untuk meningkatkan keamanan area dan manajemen akses.</p>
     </div>
 
     <div class="service-card">
-      <h3>Fire Alarm & Suppression</h3>
+      <h3><i class="bi bi-fire"></i> Fire Alarm & Suppression</h3>
       <p>Sistem deteksi dini kebakaran dan pemadam otomatis untuk perlindungan aset.</p>
     </div>
 
     <div class="service-card">
-      <h3>UPS & Power Backup</h3>
+      <h3><i class="bi bi-battery-charging"></i> UPS & Power Backup</h3>
       <p>Uninterruptible Power Supply untuk menjaga kontinuitas operasional sistem kritikal.</p>
     </div>
 
     <div class="service-card">
-      <h3>System Audio</h3>
+      <h3><i class="bi bi-speaker"></i> System Audio</h3>
       <p>Sistem audio profesional dengan kualitas suara jernih dan distribusi merata.</p>
     </div>
 
     <div class="service-card">
-      <h3>Videotron & LED Display</h3>
+      <h3><i class="bi bi-display"></i> Videotron & LED Display</h3>
       <p>Solusi layar LED dan videotron untuk kebutuhan informasi dan promosi visual.</p>
     </div>
 
     <div class="service-card highlight">
-      <h3>Maintenance & Support</h3>
+      <h3><i class="bi bi-tools"></i> Maintenance & Support</h3>
       <p>Dukungan teknis dan pemeliharaan berkala untuk memastikan sistem selalu optimal.</p>
     </div>
 
@@ -578,19 +591,29 @@ body.dark{background:var(--dark);color:var(--light);}body.dark header{background
   </div>
 </section>
 
-<section id="contact" class="contact">
+	<section id="contact" class="contact">
   <div class="contact-inner">
-    <h1>Start Your Project With Confidence!</h1>
-    <p>Isi form di bawah ini dan kami akan menghubungi Anda melalui WhatsApp.</p>
+
+    <h2>Start Your Project With Confidence</h2>
+
+    <p>
+      Our engineering and technology team is ready to deliver reliable, 
+      efficient, and scalable IT & MEP solutions tailored to your business needs.
+    </p>
+
+    <p style="margin-top:-25px; margin-bottom:50px; font-size:14px; color:#94a3b8;">
+      Backed by professional project experience since 2017.
+    </p>
 
     <div class="contact-form">
       <form id="whatsappForm">
-        <input type="text" id="name" placeholder="Nama lengkap" required>
-        <input type="email" id="email" placeholder="Email aktif" required>
-        <textarea id="message" placeholder="Tuliskan pesan atau kebutuhan Anda" rows="5" required></textarea>
-        <button type="submit" class="btn">Kirim via WhatsApp</button>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Active Email Address" required>
+        <textarea id="message" placeholder="Briefly describe your project requirements" rows="5" required></textarea>
+        <button type="submit" class="btn">Request Consultation via WhatsApp</button>
       </form>
     </div>
+
   </div>
 </section>
 
@@ -667,6 +690,7 @@ whatsappForm.addEventListener('submit', function(e){
 
 </body>
 </html>
+
 
 
 
