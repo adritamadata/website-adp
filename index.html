@@ -115,6 +115,31 @@ margin:48px auto 0;
 justify-content:center;
 }
 
+.hidden-project{
+  display:none;
+}
+
+.project-toggle{
+  margin-top:50px;
+  text-align:center;
+}
+
+.btn-outline{
+  padding:12px 28px;
+  border:2px solid var(--blue);
+  background:transparent;
+  color:var(--blue);
+  border-radius:6px;
+  font-weight:500;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn-outline:hover{
+  background:var(--blue);
+  color:white;
+}
+
 section h2::after{
     content:"";
     display:block;
@@ -539,8 +564,25 @@ body.dark{background:var(--dark);color:var(--light);}body.dark header{background
       </div>
     </div>
     <!-- PROJECT ITEM END -->
-
+	<div class="project-card hidden-project">
+  <div class="project-image">
+    <img src="images/projects/project7.webp" alt="Project 7">
   </div>
+  <div class="project-content">
+    <h3>Warehouse CCTV Deployment</h3>
+    <span class="project-meta">Bandung · 2024</span>
+    <ul>
+      <li>32 IP Camera installation</li>
+      <li>Central monitoring system</li>
+      <li>Remote access configuration</li>
+    </ul>
+  </div>
+</div>
+	  <div class="project-toggle">
+  <button id="toggleProjects" class="btn-outline">View More Projects</button>
+</div>
+
+</div>
 </section>
 
 <section id="clients" class="clients">
@@ -685,11 +727,28 @@ whatsappForm.addEventListener('submit', function(e){
   const url = `https://wa.me/628212212158?text=${encodeURIComponent(text)}`;
   window.open(url,'_blank');
 });
+
+const toggleBtn = document.getElementById('toggleProjects');
+const hiddenProjects = document.querySelectorAll('.hidden-project');
+
+let expanded = false;
+
+toggleBtn.addEventListener('click', () => {
+  expanded = !expanded;
+
+  hiddenProjects.forEach(project => {
+    project.style.display = expanded ? "block" : "none";
+  });
+
+  toggleBtn.textContent = expanded ? "Show Less" : "View More Projects";
+});
+
 </script>
 
 
 </body>
 </html>
+
 
 
 
