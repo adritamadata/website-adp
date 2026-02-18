@@ -20,6 +20,26 @@ body{background:var(--light);color:var(--dark);line-height:1.7;transition:.3s;}
 section{padding:100px 8%;scroll-margin-top:90px;}h1,h2,h3{font-weight:600;}
 header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);z-index:999;border-bottom:1px solid #e2e8f0;}
 nav{max-width:1200px;margin:auto;padding:16px 8%;display:flex;justify-content:space-between;align-items:center;}
+	.logo-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+
+.company-name{
+  font-weight:700;
+  font-size:16px;
+  letter-spacing:.5px;
+}
+
+.company-tagline{
+  font-size:11px;
+  font-weight:400;
+  color:var(--gray);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
 nav .logo{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--blue);font-size:18px;}
 nav .logo img{height:50px;width:auto;max-width:120px;object-fit:contain;}
 nav ul{display:flex;gap:32px;list-style:none;}
@@ -30,7 +50,29 @@ nav ul li a{text-decoration:none;color:var(--dark);font-weight:500;}
 .hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#0b3c8c 0%,#020617 100%);color:white;overflow:hidden;}
 .hero-content{max-width:700px;opacity:0;transform:translateY(20px);transition:all 1s ease-out;}
 .hero-content.visible{opacity:1;transform:translateY(0);}
-.hero h1{font-size:48px;margin-bottom:16px;}
+.hero h1{
+  font-size:54px;
+  margin-bottom:20px;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+
+.hero-divider{
+  width:80px;
+  height:3px;
+  background:linear-gradient(90deg,var(--red),transparent);
+  margin:20px 0 25px 0;
+  border-radius:2px;
+}
+
+.hero-subtitle{
+  font-size:18px;
+  color:#e2e8f0;
+  margin-bottom:18px;
+  font-weight:400;
+  letter-spacing:.5px;
+}
+
 .hero span{color:#ef4444;}
 .hero p{color:#cbd5f5;margin-bottom:32px;}
 
@@ -280,8 +322,21 @@ body.dark{background:var(--dark);color:var(--light);}body.dark header{background
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Solusi <span>IT & MEP</span> Profesional<br>untuk Masa Depan Anda</h1>
-    <p>Kami adalah mitra terpercaya dalam pengembangan sistem teknologi informasi dan instalasi MEP yang andal, efisien, dan berkelanjutan.</p>
+    <h1>
+  Building Progress<br>
+  <span>Through Technology</span>
+</h1>
+
+<div class="hero-divider"></div>
+
+<p class="hero-subtitle">
+  Integrated IT & MEP Engineering Solutions for Corporate and Industrial Excellence.
+</p>
+
+<p>
+  Kami adalah mitra terpercaya dalam pengembangan sistem teknologi informasi dan instalasi MEP yang andal, efisien, dan berkelanjutan.
+</p>
+
     <a href="https://wa.me/628212212158" class="btn">Hubungi Kami</a>
   </div>
 </section>
@@ -500,6 +555,7 @@ whatsappForm.addEventListener('submit', function(e){
 
 </body>
 </html>
+
 
 
 
